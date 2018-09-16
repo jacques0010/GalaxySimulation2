@@ -76,7 +76,13 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\glfw-3.2.1.bin.WIN32\include\GLFW; $(SolutionDir)Dependencies\glew-2.1.0\include\GL</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\glfw-3.2.1.bin.WIN32\lib-vc2015;$(SolutionDir)Dependencies\glew-2.1.0\lib\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -115,6 +121,49 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\ErrorHandler\ErrorLogger.cpp" />
+    <ClCompile Include="Engine\ErrorHandler\TextUtils.cpp" />
+    <ClCompile Include="Engine\FileManager\FileLoader.cpp" />
+    <ClCompile Include="Engine\Graphics\BasicShader.cpp" />
+    <ClCompile Include="Engine\Graphics\Buffers\BufferLayout.cpp" />
+    <ClCompile Include="Engine\Graphics\Buffers\IndexBuffer.cpp" />
+    <ClCompile Include="Engine\Graphics\Buffers\VertexArray.cpp" />
+    <ClCompile Include="Engine\Graphics\Buffers\VertexBuffer.cpp" />
+    <ClCompile Include="Engine\Graphics\Renderers\BasicRenderer.cpp" />
+    <ClCompile Include="Engine\Graphics\Window.cpp" />
+    <ClCompile Include="Engine\Math\Matrix4f.cpp" />
+    <ClCompile Include="Engine\Math\Vec2f.cpp" />
+    <ClCompile Include="Engine\Math\Vec3f.cpp" />
+    <ClCompile Include="Engine\Math\Vec4f.cpp" />
+    <ClCompile Include="Engine\Utilities\Function\FunctionPtr.cpp" />
+    <ClCompile Include="Game\Rectangle.cpp" />
+    <ClCompile Include="Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\basicFrag.shader" />
+    <None Include="Shaders\basicVert.shader" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Engine\ErrorHandler\ErrorHandlers.h" />
+    <ClInclude Include="Engine\ErrorHandler\ErrorLogger.h" />
+    <ClInclude Include="Engine\ErrorHandler\TextUtils.h" />
+    <ClInclude Include="Engine\FileManager\FileLoader.h" />
+    <ClInclude Include="Engine\Graphics\BasicShader.h" />
+    <ClInclude Include="Engine\Graphics\Buffers\BufferLayout.h" />
+    <ClInclude Include="Engine\Graphics\Buffers\IndexBuffer.h" />
+    <ClInclude Include="Engine\Graphics\Buffers\VertexArray.h" />
+    <ClInclude Include="Engine\Graphics\Buffers\VertexBuffer.h" />
+    <ClInclude Include="Engine\Graphics\BasicRenderable.h" />
+    <ClInclude Include="Engine\Graphics\Renderers\BasicRenderer.h" />
+    <ClInclude Include="Engine\Graphics\Window.h" />
+    <ClInclude Include="Engine\Math\MathLib.h" />
+    <ClInclude Include="Engine\Math\MathVector.h" />
+    <ClInclude Include="Engine\Math\Matrix4f.h" />
+    <ClInclude Include="Engine\Math\Vec2f.h" />
+    <ClInclude Include="Engine\Math\Vec3f.h" />
+    <ClInclude Include="Engine\Math\Vec4f.h" />
+    <ClInclude Include="Engine\Utilities\Function\FunctionPtr.h" />
+    <ClInclude Include="Game\Rectangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
